@@ -1,19 +1,27 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+import { useState } from 'react'
+import { deletePost } from "../api"
 
 export default function PostName({ post }) {
   const navigate = useNavigate();
+
+  async function handleDelete() {
+    try {
+      const result = await deletePost(post._id);
+      console.log(result);
+      navigate("/Posts");
+    } catch (error) {
+      console.error(error);
+    } 
+    
+  }
   return (
     <div>
-      <h3>Username: {post.author.username}</h3>
-      <h3>Title: {post.title}</h3>
-      <button
-        onClick={() => {
-          navigate(`/${post.id}`);
-        }}
-      >
-        See Details
-      </button>
+      <p>{post.author.username}</p>
+      <p>{post.title}</p>
+      <p>{post.price}</p>
+      <button onClick={handleDelete}>Delete Post</button>
     </div>
   );
 }
