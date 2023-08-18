@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PostName from './PostName';
 
 const COHORT_NAME = '2306-ghp-et-web-ft-sf'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
@@ -35,28 +36,15 @@ export default function Posts() {
                     Search:{" "}
                     <input
                         type="text"
-                        placeholder="search"
+                        placeholder="Search by username"
                         onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
                     />
                 </label>
             </div>
             <div>
-                {
-                    posts.map((post) => {
-                        return (
-                            <div>
-                                <h4>Username: {post.author.username}</h4>
-                                <h4>Title: {post.title}</h4>
-                                <h4>Description: {post.description}</h4>
-                                <h4>Price: {post.price}</h4>
-                                {/* <Link to={`/SinglePlayer/${player.id}`}>See Details</Link> */}
-                            </div>
-                        )
-                    })
-                }
-                 {postsToDisplay.map((post) => {
-        return (<h1>{post.author.username}</h1>);
-      })}
+                {postsToDisplay.map((post) => {
+                    return <PostName key={post.id} post={post}/>;
+                })}
             </div>
         </div>
     )
