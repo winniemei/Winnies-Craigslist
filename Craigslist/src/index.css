@@ -69,7 +69,6 @@ button:focus-visible {
 }
 
 #navbar {
-  background-color: pink;
   color: white;
   display: flex;
   justify-content: space-evenly;
