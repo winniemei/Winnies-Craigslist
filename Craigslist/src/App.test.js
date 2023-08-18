@@ -1,13 +1,14 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react"
-import "@testing-library/jest-dom/extend-expect"
-import App from "./App";
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
+
+import Posts from './components/Posts'
 
 // Unit test/Behavior Test
 describe("rendering", () => {
     test("renders the App component", () => {
-        render(<App />)
-        expect(screen.getByText("HELLO")).toBeInTheDocument()     })
+        render(<Posts />)
+        expect(screen.getByText("joe")).toBeInTheDocument()     })
     // Test: renders the Button component with correct props
 
 })
