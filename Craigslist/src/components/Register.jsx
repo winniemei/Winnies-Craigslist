@@ -14,12 +14,13 @@ export default function Register({token, setToken}) {
             if ({username}.username.length >= 8) {
             const response = await fetch(`${BASE_URL}/users/register`,{
                 method: "POST",
-                body: JSON.stringify( {username},{password} ),
+                body: JSON.stringify({user: {username, password}}),
                 headers: {"content-type": "application/json"}
             });
             const result = await response.json()
-            setToken(result.token);
-            setSuccessMessage("Sign up successful");
+            console.log(result)
+            setToken(result.data.token);
+            setSuccessMessage("Sign up successful! Please log in!");
             console.log(token)
         } else {
             alert ("Username too short. Please enter at least 8 characters.")
@@ -27,7 +28,7 @@ export default function Register({token, setToken}) {
             setPassword("");
             setToken("");
             setSuccessMessage("");
-            console.log(`ayooooo ${token}`);
+            // console.log(`ayooooo ${token}`);
         }
         } catch (error) {
             setError(error.message);
@@ -39,7 +40,6 @@ export default function Register({token, setToken}) {
     <>
     <h2>Sign up</h2>
     {successMessage && <p>{successMessage}</p>}
-    {error && <p>{error}</p>}
     <form onSubmit ={handleSubmit}>
         <label>
             Username: <input value={username} onChange={(e) => setUsername(e.target.value)}/>
