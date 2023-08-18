@@ -28,9 +28,10 @@ export default function Posts() {
                         return (
                             <div>
                                 <h4>Username: {post.author.username}</h4>
-                                {/* <h4>Breed: {player.breed}</h4>
-                                <img src={player.imageUrl} alt={player.name} />
-                                <Link to={`/SinglePlayer/${player.id}`}>See Details</Link> */}
+                                <h4>Title: {post.title}</h4>
+                                <h4>Description: {post.description}</h4>
+                                <h4>Price: {post.price}</h4>
+                                {/* <Link to={`/SinglePlayer/${player.id}`}>See Details</Link> */}
                             </div>
                         )
                     })
