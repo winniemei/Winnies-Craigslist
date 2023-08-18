@@ -34,7 +34,7 @@ export default function Login({ token, setToken}) {
 
 	return (
 		<>
-            <h2>Authenticate</h2>
+            <h2>Log in</h2>
             {successMessage && <p>{successMessage}</p>}
             {error && <p>{error}</p>}
 			<form onSubmit={handleClick}>
