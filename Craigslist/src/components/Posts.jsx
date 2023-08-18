@@ -54,6 +54,9 @@ export default function Posts() {
                         )
                     })
                 }
+                 {postsToDisplay.map((post) => {
+        return (<h1>{post.author.username}</h1>);
+      })}
             </div>
         </div>
     )
