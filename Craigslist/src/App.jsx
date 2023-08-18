@@ -5,8 +5,6 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Posts from './components/Posts'
 import NavBar from './components/Navbar'
-import Authenticate from './components/Authenticate'
-
 
 export default function App() {
   const [token, setToken] = useState("")
