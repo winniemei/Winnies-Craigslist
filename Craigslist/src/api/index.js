@@ -23,8 +23,6 @@ export async function makePost(title, description, price, willDeliver, {token}) 
       })
     });
     const result = await response.json();
-    console.log(`descriptioooon ${description}`)
-    console.log(description)
     return result;
   } catch (error) {
     console.error(error);
