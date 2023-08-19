@@ -22,7 +22,7 @@ export default function CreatePost({ posts, setPosts, token }) {
             //   setName("");
             //   setBreed("");
         } else {
-            setError(APIData.error.message);
+            alert("Apologies -- you have to enter a valid post. Make sure to set delivery to either true or false.")
         }
     }
 
