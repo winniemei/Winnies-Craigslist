@@ -3,14 +3,17 @@ import { useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import { deletePost } from "../api"
 
-export default function PostName({ post, token }) {
+export default function PostName({ post, token, posts, setPosts }) {
   const navigate = useNavigate();
 
   async function handleDelete() {
     try {
       const result = await deletePost(post._id, token);
+
+      const updatedPosts = posts.filter((selectedPost) => selectedPost._id !== post._id)
       console.log(result);
-      navigate("/Posts");
+      setPosts(updatedPosts);
+      navigate("/posts");
     } catch (error) {
       console.error(error);
     } 
