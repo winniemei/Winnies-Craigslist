@@ -10,10 +10,9 @@ export default function Login({ token, setToken }) {
     const [error, setError] = useState(null);
 
     const authorizedUsers = useSelector(state => state.authenticate)
-    console.log(authorizedUsers)
     // const authorizedPassword = useSelector(state => state.authenticate.password)
     async function handleClick() {
-
+        
         try {
             const response = await fetch(`${BASE_URL}/users/login`, {
                 method: "POST",
@@ -22,21 +21,22 @@ export default function Login({ token, setToken }) {
                 },
                     body: JSON.stringify({ 
                         user: {
-                            username: 'thegoodplace',
-                            password: 'youpassed' 
+                            username: `${username}`,
+                            password: `${password}` 
                     } 
                 })
             });
             const result = await response.json();
             console.log(`what i get ${JSON.stringify(result)}`)
-            console.log(result.message);
             if (result.success) {
                 setSuccessMessage('Awesome')
+                alert("Congrats! You're logged in!")
             } else {
                 console.log("not authorized")
             }
 
         } catch (error) {
+            console.log("ERROR")
             setError(error.message);
         }
     }
@@ -46,8 +46,7 @@ export default function Login({ token, setToken }) {
             <h2>Log in</h2>
             {successMessage && <p>{successMessage}</p>}
             {error && <p>{error}</p>}
-            <button onClick={handleClick}>Authenticate Token</button>
-            {/* <form onSubmit={handleClick}>
+            <form>
                 <label>
                     Username: <input value={username} onChange={(e) => setUsername(e.target.value)} />
                 </label><br />
@@ -55,8 +54,8 @@ export default function Login({ token, setToken }) {
                     Password: <input value={password} onChange={(e) => setPassword(e.target.value)} />
                 </label>
                 <br></br>
-                <button>Submit</button>
-            </form> */}
+                <button type="button" onClick={handleClick}>Log in</button>
+            </form>
         </>
     );
 }
