@@ -18,22 +18,24 @@ export default function Login({ token, setToken }) {
             const response = await fetch(`${BASE_URL}/users/login`, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
-                    body: JSON.stringify({ user: { username, password } }),
-                    Authorization: `Bearer ${token}`
-                }
-            })
+                    "Content-Type": "application/json"
+                },
+                    body: JSON.stringify({ 
+                        user: {
+                            username: 'thegoodplace',
+                            password: 'youpassed' 
+                    } 
+                })
+            });
             const result = await response.json();
-            console.log(result)
+            console.log(`what i get ${JSON.stringify(result)}`)
             console.log(result.message);
             if (result.success) {
-                setSuccessMessage(`User ${result.data.username} is ${result.message}`)
+                setSuccessMessage('Awesome')
             } else {
-                setSuccessMessage(result.message)
-                console.log(`token: ${token}`);
-            } 
                 console.log("not authorized")
-            
+            }
+
         } catch (error) {
             setError(error.message);
         }
@@ -44,7 +46,8 @@ export default function Login({ token, setToken }) {
             <h2>Log in</h2>
             {successMessage && <p>{successMessage}</p>}
             {error && <p>{error}</p>}
-            <form onSubmit={handleClick}>
+            <button onClick={handleClick}>Authenticate Token</button>
+            {/* <form onSubmit={handleClick}>
                 <label>
                     Username: <input value={username} onChange={(e) => setUsername(e.target.value)} />
                 </label><br />
@@ -53,7 +56,7 @@ export default function Login({ token, setToken }) {
                 </label>
                 <br></br>
                 <button>Submit</button>
-            </form>
+            </form> */}
         </>
     );
 }
