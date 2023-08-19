@@ -5,7 +5,7 @@ const COHORT_NAME = '2306-ghp-et-web-ft-sf'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
 
-export default function Posts() {
+export default function Posts({token}) {
     const [posts, setPosts] = useState([]);
     const [searchParam, setSearchParam] = useState("");
     useEffect(() => {
@@ -43,7 +43,7 @@ export default function Posts() {
             </div>
             <div>
                 {postsToDisplay.map((post) => {
-                    return <PostName key={post.id} post={post}/>;
+                    return <PostName key={post.id} post={post} token={token}/>;
                 })}
             </div>
         </div>

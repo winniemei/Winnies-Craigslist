@@ -6,6 +6,7 @@ import Login from './components/Login'
 import Posts from './components/Posts'
 import NavBar from './components/Navbar'
 
+
 export default function App() {
   const [token, setToken] = useState("")
   return (
@@ -14,7 +15,7 @@ export default function App() {
       <Routes>
         <Route path='/register' element={<Register token={token} setToken={setToken}/>}/>
         <Route path='/login' element={<Login token={token} setToken={setToken}/>}/>
-        <Route path='/posts' element={<Posts />}/>
+        <Route path='/posts' element={<Posts token={token} setToken={setToken}/>}/>
       </Routes>
       <NavBar />
       </div>
