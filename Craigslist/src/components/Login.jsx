@@ -1,21 +1,27 @@
-import { useState } from "react";
+import { useState } from "react"
+import { useSelector } from "react-redux"
 const COHORT_NAME = '2306-ghp-et-web-ft-sf'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
-export default function Login({ token, setToken}) {
+export default function Login({ token, setToken }) {
     const [successMessage, setSuccessMessage] = useState(null);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
 
+    const authorizedUsers = useSelector(state => state.authenticate)
+    console.log(authorizedUsers)
+    // const authorizedPassword = useSelector(state => state.authenticate.password)
     async function handleClick() {
+
         try {
             const response = await fetch(`${BASE_URL}/users/login`, {
                 method: "POST",
                 headers: {
-                "Content-Type": "application/json",
-                body: JSON.stringify({user: {username, password}}),
-                Authorization: `Bearer ${token}`}
+                    "Content-Type": "application/json",
+                    body: JSON.stringify({ user: { username, password } }),
+                    Authorization: `Bearer ${token}`
+                }
             })
             const result = await response.json();
             console.log(result)
@@ -25,19 +31,20 @@ export default function Login({ token, setToken}) {
             } else {
                 setSuccessMessage(result.message)
                 console.log(`token: ${token}`);
-            }
-            console.log("result: ", result);
+            } 
+                console.log("not authorized")
+            
         } catch (error) {
             setError(error.message);
         }
     }
 
-	return (
-		<>
+    return (
+        <>
             <h2>Log in</h2>
             {successMessage && <p>{successMessage}</p>}
             {error && <p>{error}</p>}
-			<form onSubmit={handleClick}>
+            <form onSubmit={handleClick}>
                 <label>
                     Username: <input value={username} onChange={(e) => setUsername(e.target.value)} />
                 </label><br />
@@ -47,6 +54,6 @@ export default function Login({ token, setToken}) {
                 <br></br>
                 <button>Submit</button>
             </form>
-		</>
-	);
+        </>
+    );
 }
