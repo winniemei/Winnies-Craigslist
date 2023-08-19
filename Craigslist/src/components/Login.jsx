@@ -32,6 +32,7 @@ export default function Login({ token, setToken }) {
                 setSuccessMessage('Awesome')
                 alert("Congrats! You're logged in!")
             } else {
+                alert("Yikes! You are not authorized!")
                 console.log("not authorized")
             }
 
@@ -54,7 +55,7 @@ export default function Login({ token, setToken }) {
                     Password: <input value={password} onChange={(e) => setPassword(e.target.value)} />
                 </label>
                 <br></br>
-                <button type="button" onClick={handleClick}>Log in</button>
+                <button type="button" onClick={handleClick}>Submit</button>
             </form>
         </>
     );
