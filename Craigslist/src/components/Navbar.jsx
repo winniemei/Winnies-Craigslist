@@ -6,6 +6,7 @@ export default function NavBar() {
       <Link to="/register">REGISTER</Link>
       <Link to="/login">LOG IN</Link>
       <Link to="/posts">POSTS</Link>
+      <Link to="/createPost">CREATE POST</Link>
     </div>
   );
 }

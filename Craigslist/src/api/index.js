@@ -4,21 +4,45 @@ import Posts from "../components/Posts";
 const COHORT_NAME = '2306-ghp-et-web-ft-sf'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
-
-export async function deletePost(id, {token}) {
-    token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGRmZmI1ZmQ3YTIxNjAwMTQzMmJmYTYiLCJ1c2VybmFtZSI6Indpbm5pZWhleSIsImlhdCI6MTY5MjQ3NjgxMX0.ydvhAGvuRo-u_H6g1AHAO9wlF_S6ya76Cq3JCWneZT8"
-    try {
-      const response = await fetch(`${BASE_URL}/posts/${id}`, {
-        method: "DELETE",
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+export async function makePost(title, price, { token }) {
+  token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGUxMzQ0YWJlYjkzNTAwMTRjM2JjODMiLCJ1c2VybmFtZSI6IkhBUFBZR09MVUNLWSIsImlhdCI6MTY5MjQ4MDU4Nn0.cKe3kM_V1AbPnOSrHwoiqYK6n9Z1tQdAoVgKSjdALeU"
+  try {
+    const response = await fetch(`${BASE_URL}/posts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        post: {
+          title: "PUPPY LOVE",
+          description: "Pretty cute",
+          price: "Priceless",
+          willDeliver: true
         }
-      });
-      const result = await response.json();
-      console.log(result);
-    } catch (error) {
-      console.log(error)
-      console.error(error);
-    }
+      })
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
   }
+}
+
+export async function deletePost(id, { token }) {
+  token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGUxMzQ0YWJlYjkzNTAwMTRjM2JjODMiLCJ1c2VybmFtZSI6IkhBUFBZR09MVUNLWSIsImlhdCI6MTY5MjQ4MDU4Nn0.cKe3kM_V1AbPnOSrHwoiqYK6n9Z1tQdAoVgKSjdALeU"
+  try {
+    const response = await fetch(`${BASE_URL}/posts/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    const result = await response.json();
+    console.log(result);
+  } catch (error) {
+    console.log(error)
+    console.error(error);
+  }
+}

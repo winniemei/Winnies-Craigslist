@@ -5,6 +5,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Posts from './components/Posts'
 import NavBar from './components/Navbar'
+import CreatePost from './components/CreatePost'
 
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Route path='/register' element={<Register token={token} setToken={setToken}/>}/>
         <Route path='/login' element={<Login token={token} setToken={setToken}/>}/>
         <Route path='/posts' element={<Posts token={token} setToken={setToken}/>}/>
+        <Route path='/createPost' element={<CreatePost token={token} setToken={setToken}/>}/>
       </Routes>
       <NavBar />
       </div>
