@@ -4,7 +4,7 @@ import Posts from "../components/Posts";
 const COHORT_NAME = '2306-ghp-et-web-ft-sf'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
-export async function makePost(title, price, { token }) {
+export async function makePost(title, description, price, willDeliver, {token}) {
   token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGUxMzQ0YWJlYjkzNTAwMTRjM2JjODMiLCJ1c2VybmFtZSI6IkhBUFBZR09MVUNLWSIsImlhdCI6MTY5MjQ4MDU4Nn0.cKe3kM_V1AbPnOSrHwoiqYK6n9Z1tQdAoVgKSjdALeU"
   try {
     const response = await fetch(`${BASE_URL}/posts`, {
@@ -15,14 +15,16 @@ export async function makePost(title, price, { token }) {
       },
       body: JSON.stringify({
         post: {
-          title: "PUPPY LOVE",
-          description: "Pretty cute",
-          price: "Priceless",
-          willDeliver: true
+          title: title,
+          description: description,
+          price: price,
+          willDeliver: willDeliver
         }
       })
     });
     const result = await response.json();
+    console.log(`descriptioooon ${description}`)
+    console.log(description)
     return result;
   } catch (error) {
     console.error(error);
