@@ -22,7 +22,7 @@ export default function PostName({ post, token, posts, setPosts }) {
   return (
     <div>
       <div className="postCard">
-        <p>Title: {post.title}</p>
+        <h3>Title: {post.title}</h3>
         <p>Author: {post.author.username}</p>
         <p>Description: {post.description}</p>
         <p>Price: {post.price}</p><br></br>
