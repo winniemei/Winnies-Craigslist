@@ -30,13 +30,12 @@ export default function Posts({token}) {
 
     return (
         <div>
-            <h1>ALL POSTS</h1>
             <div>
                 <label>
                     Search:{" "}
                     <input
                         type="text"
-                        placeholder="Search by username"
+                        placeholder="Search by author"
                         onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
                     />
                 </label>
