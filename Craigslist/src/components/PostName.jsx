@@ -20,11 +20,14 @@ export default function PostName({ post, token, posts, setPosts }) {
     
   }
   return (
-    <div>
-      <p>{post.author.username}</p>
-      <p>{post.title}</p>
-      <p>{post.price}</p>
-      <button type="button" onClick={handleDelete}>Delete Post</button>
+    <div id="cardContainer">
+      <div id="postCard">
+        <p>Title: {post.title}</p>
+        <p>Author: {post.author.username}</p>
+        <p>Description: {post.description}</p>
+        <p>Price: {post.price}</p><br></br>
+        <button type="button" onClick={handleDelete}>Delete Post</button>
+      </div>
     </div>
   );
 }
