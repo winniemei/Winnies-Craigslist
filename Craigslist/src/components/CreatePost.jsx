@@ -3,7 +3,7 @@ import { makePost } from "../api";
 import { selectCurrentToken, selectCurrentUser } from "../redux/authenticateSlice";
 import { useSelector } from "react-redux";
 
-export default function CreatePost({ posts, setPosts }) {
+export default function CreatePost({ posts, setPosts, token }) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("");
@@ -13,7 +13,7 @@ export default function CreatePost({ posts, setPosts }) {
     async function handleSubmit(e) {
         e.preventDefault();
         
-        const APIData = await makePost(title, description, price, willDeliver, {token});
+        const APIData = await makePost(title, description, price, willDeliver, token);
         console.log(selectCurrentToken)
         if (APIData.success) {
             console.log("New Player: ", APIData);
