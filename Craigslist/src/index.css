@@ -87,8 +87,8 @@ button:focus-visible {
   color: black;
   text-align: center;
   border-radius: 1rem;
-  width: 280px;
-  height: 35vh;
+  width: 100vw;
+  height: 20vh;
+  margin-top: .4rem;
   margin-bottom: .4rem;
-  margin-left: .4rem;
 }
