@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: black;
+  background-color: aliceblue;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,6 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -77,14 +78,16 @@ button:focus-visible {
 #cardContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
-#postCard {
+
+.postCard {
   overflow: hidden;
   background-color: lightblue;
   color: black;
   text-align: center;
   border-radius: 1rem;
   width: 280px;
-  margin-bottom: 4rem;
+  margin-bottom: .4rem;
+  margin-left: .4rem;
 }

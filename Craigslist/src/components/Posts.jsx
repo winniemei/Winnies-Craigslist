@@ -42,9 +42,11 @@ export default function Posts({token}) {
                 </label>
             </div>
             <div>
+            <div id="cardContainer">
                 {postsToDisplay.map((post) => {
                     return <PostName key={post.id} post={post} token={token} posts={posts} setPosts={setPosts}/>;
                 })}
+            </div>
             </div>
         </div>
     )
