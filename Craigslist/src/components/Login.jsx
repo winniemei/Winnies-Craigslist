@@ -54,7 +54,8 @@ export default function Login({ token, setToken }) {
             <h2>Log in</h2>
             {successMessage && <p>{successMessage}</p>}
             {error && <p>{error}</p>}
-            <form>
+            <div>
+            <form className="formGroup">
                 <label>
                     Username: <input value={username} onChange={(e) => setUsername(e.target.value)} />
                 </label><br />
@@ -64,6 +65,7 @@ export default function Login({ token, setToken }) {
                 <br></br>
                 <button type="button" onClick={handleClick}>Submit</button>
             </form>
+            </div>
         </>
     );
 }

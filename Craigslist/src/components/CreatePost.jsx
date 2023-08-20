@@ -30,6 +30,7 @@ export default function CreatePost({ posts, setPosts, token }) {
     }
 
     return (
+        <div className="formGroup">
         <form onSubmit={handleSubmit}>
             {error && <p>{error}</p>}
             <input
@@ -38,29 +39,30 @@ export default function CreatePost({ posts, setPosts, token }) {
                 name="title"
                 placeholder="title"
                 onChange={(e) => setTitle(e.target.value)}
-            />
+            /><br />
             <input
                 value={price}
                 type="text"
                 name="price"
                 placeholder="price"
                 onChange={(e) => setPrice(e.target.value)}
-            />
+            /><br />
             <input
                 value={description}
                 type="text"
                 name="description"
                 placeholder="description"
                 onChange={(e) => setDescription(e.target.value)}
-            />
+            /><br />
             <input
                 value={willDeliver}
                 type="text"
                 name="willDeliver"
                 placeholder="willDeliver"
                 onChange={(e) => setWillDeliver(e.target.value)}
-            />
+            /><br />
             <button>Submit</button>
         </form>
+        </div>
     );
 }

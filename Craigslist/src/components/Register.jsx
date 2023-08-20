@@ -40,6 +40,7 @@ export default function Register({token, setToken}) {
     <>
     <h2>Sign up</h2>
     {successMessage && <p>{successMessage}</p>}
+    <div className="formGroup">
     <form onSubmit ={handleSubmit}>
         <label>
             Username: <input value={username} onChange={(e) => setUsername(e.target.value)}/>
@@ -50,6 +51,7 @@ export default function Register({token, setToken}) {
         <br></br>
         <button>Submit</button>
     </form>
+    </div>
     </>
     )
 }
