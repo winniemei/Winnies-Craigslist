@@ -16,7 +16,7 @@ export default function UpdatePost({ post, token, posts, setPosts}) {
 
     async function handleSubmit(e) {
       e.preventDefault();
-      const APIData = await editPost(title, description, price, willDeliver, currentToken, "64e3d72c555d2f00149d0958");
+      const APIData = await editPost(title, description, price, willDeliver, currentToken, post._id);
       console.log(currentToken)
       console.log(posts)
       console.log(post)

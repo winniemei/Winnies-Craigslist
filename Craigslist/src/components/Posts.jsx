@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import PostName from './PostName';
+import UpdatePost from './UpdatePost';
 
 const COHORT_NAME = '2306-ghp-et-web-ft-sf'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
@@ -43,8 +44,7 @@ export default function Posts({ token }) {
             <div>
                 <div id="cardContainer">
                     {postsToDisplay.map((post) => {
-                        return <PostName key={post.id} post={post} token={token} posts={posts} setPosts={setPosts} 
-                        />;
+                        return (<><PostName key={post.id} post={post} token={token} posts={posts} setPosts={setPosts} /><UpdatePost post={post} /></>);
                     })}
                 </div>
             </div>
