@@ -4,19 +4,20 @@ import { selectCurrentToken, selectCurrentUser } from "../redux/authenticateSlic
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-export default function CreatePost({ posts, setPosts, token }) {
+export default function CreatePost({ posts, setPosts, username}) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("");
     const [willDeliver, setWillDeliver] = useState("")
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const currentToken = useSelector(selectCurrentToken)
 
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const APIData = await makePost(title, description, price, willDeliver, token);
-        console.log(selectCurrentToken)
+        const APIData = await makePost(title, description, price, willDeliver, currentToken);
+        console.log(currentToken)
         if (APIData.success) {
             console.log("New Player: ", APIData);
             alert("Congrats!! You made a new post!")
