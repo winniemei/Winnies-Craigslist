@@ -31,32 +31,8 @@ export async function makePost(title, description, price, willDeliver, token) {
   }
 }
 
-export async function editPost(title, description, price, willDeliver, token) {
-  try {
-    const response = await fetch(`${BASE_URL}/posts`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        'Authorization': `Bearer ${token}`
-      },
-      body: JSON.stringify({
-        post: {
-          title: title,
-          description: description,
-          price: price,
-          willDeliver: willDeliver
-        }
-      })
-    });
-
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
 export async function deletePost(id, token) {
+  token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGUxMzQ0YWJlYjkzNTAwMTRjM2JjODMiLCJ1c2VybmFtZSI6IkhBUFBZR09MVUNLWSIsImlhdCI6MTY5MjQ4MDU4Nn0.cKe3kM_V1AbPnOSrHwoiqYK6n9Z1tQdAoVgKSjdALeU"
   try {
     const response = await fetch(`${BASE_URL}/posts/${id}`, {
       method: "DELETE",

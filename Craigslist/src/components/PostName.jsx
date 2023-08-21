@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { deletePost } from "../api"
 import { useSelector } from "react-redux";
 import { selectCurrentToken } from "../redux/authenticateSlice";
-import EditPost from "./EditPost";
 
 export default function PostName({ post, token, posts, setPosts, handleEdit}) {
   const navigate = useNavigate();
