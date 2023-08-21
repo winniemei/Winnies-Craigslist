@@ -6,6 +6,9 @@
   color-scheme: light dark;
   color: black;
   background-color: aliceblue;
+  background-image: url(./pinkbg.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -82,7 +85,7 @@ button:focus-visible {
 
 .postCard {
   overflow: hidden;
-  background-color: lightblue;
+  background-color: hsl(195, 53%, 79%, 0.5);
   color: black;
   text-align: center;
   border-radius: 1rem;
@@ -93,7 +96,7 @@ button:focus-visible {
 }
 
 .formGroup {
-  background-color: lightblue;
+  background-color: hwb(195, 68%, 10%, 0.5);
   height: 20vh;
   border-radius: 20px;
 }
