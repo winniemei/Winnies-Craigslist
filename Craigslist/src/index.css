@@ -104,4 +104,5 @@ button:focus-visible {
 .inputField {
   background-color: rgb(252, 243, 243, .5);
   border-radius: 5px;
+  color: black;
 }
