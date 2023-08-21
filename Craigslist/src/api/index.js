@@ -30,8 +30,7 @@ export async function makePost(title, description, price, willDeliver, token) {
   }
 }
 
-export async function deletePost(id, { token }) {
-  token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGUxMzQ0YWJlYjkzNTAwMTRjM2JjODMiLCJ1c2VybmFtZSI6IkhBUFBZR09MVUNLWSIsImlhdCI6MTY5MjQ4MDU4Nn0.cKe3kM_V1AbPnOSrHwoiqYK6n9Z1tQdAoVgKSjdALeU"
+export async function deletePost(id, token) {
   try {
     const response = await fetch(`${BASE_URL}/posts/${id}`, {
       method: "DELETE",
