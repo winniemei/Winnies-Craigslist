@@ -4,8 +4,9 @@ import { useState } from 'react'
 import { deletePost } from "../api"
 import { useSelector } from "react-redux";
 import { selectCurrentToken } from "../redux/authenticateSlice";
+import EditPost from "./EditPost";
 
-export default function PostName({ post, token, posts, setPosts }) {
+export default function PostName({ post, token, posts, setPosts, handleEdit}) {
   const navigate = useNavigate();
   const currentToken = useSelector(selectCurrentToken)
 
@@ -30,6 +31,7 @@ export default function PostName({ post, token, posts, setPosts }) {
         <p>Description: {post.description}</p>
         <p>Price: {post.price}</p><br></br>
         <button type="button" onClick={handleDelete}>Delete Post</button>
+        <button type="button" onClick={handleEdit}>Edit</button>
       </div>
     </div>
   );

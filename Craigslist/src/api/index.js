@@ -21,6 +21,28 @@ export async function makePost(title, description, price, willDeliver, token) {
           willDeliver: willDeliver
         }
       })
+    })
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function editPost(title, description, price, willDeliver, token) {
+  try {
+    const response = await fetch(`${BASE_URL}/posts`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        post: {
+          title: title,
+          description: description,
+          price: price,
+          willDeliver: willDeliver
+        }
+      })
     });
 
     const result = await response.json();
