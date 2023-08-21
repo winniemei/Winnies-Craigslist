@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const COHORT_NAME = '2306-ghp-et-web-ft-sf'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
-export async function makePost(title, description, price, willDeliver, {token}) {
+export async function makePost(title, description, price, willDeliver, { token }) {
   token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGUxMzQ0YWJlYjkzNTAwMTRjM2JjODMiLCJ1c2VybmFtZSI6IkhBUFBZR09MVUNLWSIsImlhdCI6MTY5MjQ4MDU4Nn0.cKe3kM_V1AbPnOSrHwoiqYK6n9Z1tQdAoVgKSjdALeU"
   try {
     const response = await fetch(`${BASE_URL}/posts`, {
@@ -23,7 +23,7 @@ export async function makePost(title, description, price, willDeliver, {token}) 
         }
       })
     });
-    
+
     const result = await response.json();
     return result;
   } catch (error) {
