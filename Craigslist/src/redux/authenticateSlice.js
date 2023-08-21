@@ -23,5 +23,3 @@ export default authenticateSlice.reducer;
 
 export const selectCurrentUser = (state) => state.authenticate.user;
 export const selectCurrentToken = (state) => state.authenticate.token;
-
-console.log(state)

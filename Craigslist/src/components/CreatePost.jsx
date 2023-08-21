@@ -3,6 +3,8 @@ import { makePost } from "../api";
 import { selectCurrentToken, selectCurrentUser } from "../redux/authenticateSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import authenticateReducer from "../redux/authenticateSlice"
+
 
 export default function CreatePost({ posts, setPosts, username}) {
     const [title, setTitle] = useState("");

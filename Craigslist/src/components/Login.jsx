@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { setCredentials } from "../redux/authenticateSlice"
 import { useNavigate } from "react-router-dom"
+import { selectCurrentToken, selectCurrentUser } from "../redux/authenticateSlice"
 
 const COHORT_NAME = '2306-ghp-et-web-ft-sf'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
@@ -14,7 +15,6 @@ export default function Login({ token, setToken }) {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
 
-    // const authorizedPassword = useSelector(state => state.authenticate.password)
     async function handleClick() {
         try {
             const response = await fetch(`${BASE_URL}/users/login`, {
