@@ -25,7 +25,7 @@ export default function CreatePost({ posts, setPosts, username}) {
             alert("Congrats!! You made a new post!")
             navigate('/posts')
         } else {
-            alert("Apologies -- you have to enter a valid post. Make sure to set delivery to either true or false.")
+            alert("Apologies -- you have to be logged in and enter a valid post. Make sure to set delivery to either true or false.")
         }
     }
 

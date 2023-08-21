@@ -24,13 +24,13 @@ export default function UpdatePost({ post, token, posts, setPosts}) {
       console.log(post)
       if (APIData.success) {
           console.log("New Player: ", APIData);
-          alert("Congrats!! You made a new post!")
+          alert("Congrats!! You edited a post!")
           navigate('/posts')
       } else {
         console.log(APIData)
         console.log(post)
         console.log(posts)
-          alert("Apologies -- you have to enter a valid post. Make sure to set delivery to either true or false.")
+          alert("Apologies -- you have to be logged in and enter a valid post. Make sure to set delivery to either true or false.")
       }
   }
 
