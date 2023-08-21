@@ -1,5 +1,6 @@
 import PostName from "../components/PostName";
 import Posts from "../components/Posts";
+import { useNavigate } from "react-router-dom";
 
 const COHORT_NAME = '2306-ghp-et-web-ft-sf'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
