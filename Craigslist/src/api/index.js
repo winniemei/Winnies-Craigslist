@@ -30,9 +30,9 @@ export async function makePost(title, description, price, willDeliver, token) {
   }
 }
 
-export async function editPost(title, description, price, willDeliver, token) {
+export async function editPost(title, description, price, willDeliver, token, id) {
   try {
-    const response = await fetch(`${BASE_URL}/posts`, {
+    const response = await fetch(`${BASE_URL}/posts/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

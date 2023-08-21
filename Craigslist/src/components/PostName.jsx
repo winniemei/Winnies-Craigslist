@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"
 import { useState } from 'react'
-import { deletePost } from "../api"
+import { deletePost, editPost } from "../api"
 import { useSelector } from "react-redux";
 import { selectCurrentToken } from "../redux/authenticateSlice";
 
-export default function PostName({ post, token, posts, setPosts, handleEdit}) {
+export default function PostName({ post, token, posts, setPosts}) {
   const navigate = useNavigate();
   const currentToken = useSelector(selectCurrentToken)
 
@@ -22,6 +22,21 @@ export default function PostName({ post, token, posts, setPosts, handleEdit}) {
     } 
     
   }
+
+  async function handleEdit() {
+    try {
+      const result = await editPost(title, description, price, willDeliver, currentToken, post._id);
+
+      const updatedPosts = posts.filter((selectedPost) => selectedPost._id !== post._id)
+      console.log(result);
+      setPosts(updatedPosts);
+      navigate("/posts");
+    } catch (error) {
+      console.error(error);
+    } 
+    
+  }
+
   return (
     <div>
       <div className="postCard">
