@@ -14,7 +14,7 @@ export default function CreatePost({ posts, setPosts, token }) {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        
+
         const APIData = await makePost(title, description, price, willDeliver, token);
         console.log(selectCurrentToken)
         if (APIData.success) {
@@ -28,38 +28,42 @@ export default function CreatePost({ posts, setPosts, token }) {
 
     return (
         <div className="formGroup">
-        <form onSubmit={handleSubmit}>
-            {error && <p>{error}</p>}
-            <input
-                value={title}
-                type="text"
-                name="title"
-                placeholder="title"
-                onChange={(e) => setTitle(e.target.value)}
-            /><br />
-            <input
-                value={price}
-                type="text"
-                name="price"
-                placeholder="price"
-                onChange={(e) => setPrice(e.target.value)}
-            /><br />
-            <input
-                value={description}
-                type="text"
-                name="description"
-                placeholder="description"
-                onChange={(e) => setDescription(e.target.value)}
-            /><br />
-            <input
-                value={willDeliver}
-                type="text"
-                name="willDeliver"
-                placeholder="willDeliver"
-                onChange={(e) => setWillDeliver(e.target.value)}
-            /><br />
-            <button>Submit</button>
-        </form>
+            <form onSubmit={handleSubmit}>
+                {error && <p>{error}</p>}
+                <input
+                    className="inputField"
+                    value={title}
+                    type="text"
+                    name="title"
+                    placeholder="title"
+                    onChange={(e) => setTitle(e.target.value)}
+                /><br />
+                <input
+                    className="inputField"
+                    value={price}
+                    type="text"
+                    name="price"
+                    placeholder="price"
+                    onChange={(e) => setPrice(e.target.value)}
+                /><br />
+                <input
+                    className="inputField"
+                    value={description}
+                    type="text"
+                    name="description"
+                    placeholder="description"
+                    onChange={(e) => setDescription(e.target.value)}
+                /><br />
+                <input
+                    className="inputField"
+                    value={willDeliver}
+                    type="text"
+                    name="willDeliver"
+                    placeholder="willDeliver"
+                    onChange={(e) => setWillDeliver(e.target.value)}
+                /><br />
+                <button>Submit</button>
+            </form>
         </div>
     );
 }

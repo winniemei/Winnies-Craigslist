@@ -43,10 +43,10 @@ export default function Register({token, setToken}) {
     <div className="formGroup">
     <form onSubmit ={handleSubmit}>
         <label>
-            Username: <input value={username} onChange={(e) => setUsername(e.target.value)}/>
+            Username: <input className="inputField" value={username} onChange={(e) => setUsername(e.target.value)}/>
         </label><br/>
         <label>
-            Password: <input value={password} onChange={(e) => setPassword(e.target.value)} />
+            Password: <input className="inputField" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
         <br></br>
         <button>Submit</button>
