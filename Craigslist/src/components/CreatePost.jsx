@@ -64,7 +64,7 @@ export default function CreatePost({ posts, setPosts, username}) {
                     name="willDeliver"
                     placeholder="willDeliver"
                     onChange={(e) => setWillDeliver(e.target.value)}
-                /><br />
+                /><br /><br />
                 <button>Submit</button>
             </form>
         </div>
