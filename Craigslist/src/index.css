@@ -85,7 +85,7 @@ button:focus-visible {
 
 .postCard {
   overflow: hidden;
-  background-color: hsl(195, 53%, 79%, 0.5);
+  background-color: hsl(195, 53%, 79%, 0.4);
   color: black;
   text-align: center;
   border-radius: 1rem;
