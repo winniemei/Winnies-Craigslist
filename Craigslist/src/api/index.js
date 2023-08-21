@@ -30,7 +30,7 @@ export async function makePost(title, description, price, willDeliver, token) {
   }
 }
 
-export async function editPost(token, id) {
+export async function editPost(title, price, description, willDeliver, token, id) {
   try {
     const response = await fetch(`${BASE_URL}/posts/${id}`, {
       method: "PATCH",
@@ -40,9 +40,9 @@ export async function editPost(token, id) {
       },
       body: JSON.stringify({
         post: {
-          title: "eating",
-          description: "eating",
-          price: "eating",
+          title: title,
+          description: description,
+          price: price,
           willDeliver: true
         }
       })

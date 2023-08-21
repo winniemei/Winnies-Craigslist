@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { deletePost, editPost } from "../api"
 import { useSelector } from "react-redux";
 import { selectCurrentToken } from "../redux/authenticateSlice";
+import UpdatePost from "./UpdatePost";
 
 export default function PostName({ post, token, posts, setPosts}) {
   const navigate = useNavigate();
@@ -25,14 +26,8 @@ export default function PostName({ post, token, posts, setPosts}) {
 
   async function handleEdit() {
     try {
-      const result = await editPost(currentToken, post._id);
-      console.log(result)
-      if (result.success) {
-        console.log("you made an edit!")
-      } else{
-        console.log("WTF")
-      }
-
+      <UpdatePost post={post}/>
+      navigate("/updatePost")
     } catch (error) {
       console.error(error);
     } 

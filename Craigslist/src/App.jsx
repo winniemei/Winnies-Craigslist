@@ -7,7 +7,7 @@ import Login from './components/Login'
 import Posts from './components/Posts'
 import NavBar from './components/Navbar'
 import CreatePost from './components/CreatePost'
-
+import UpdatePost from './components/UpdatePost';
 
 export default function App() {
   const [token, setToken] = useState("")
@@ -19,6 +19,7 @@ export default function App() {
         <Route path='/login' element={<Login token={token} setToken={setToken}/>}/>
         <Route path='/posts' element={<Posts token={token} setToken={setToken}/>}/>
         <Route path='/createPost' element={<CreatePost token={token} setToken={setToken}/>}/>
+        <Route path='/updatePost' element={<UpdatePost token={token} setToken={setToken}/>}/>
       </Routes>
       <NavBar />
       </div>
