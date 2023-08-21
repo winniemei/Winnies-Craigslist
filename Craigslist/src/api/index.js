@@ -30,20 +30,20 @@ export async function makePost(title, description, price, willDeliver, token) {
   }
 }
 
-export async function editPost(title, description, price, willDeliver, token, id) {
+export async function editPost(token, id) {
   try {
     const response = await fetch(`${BASE_URL}/posts/${id}`, {
-      method: "POST",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({
         post: {
-          title: title,
-          description: description,
-          price: price,
-          willDeliver: willDeliver
+          title: "eating",
+          description: "eating",
+          price: "eating",
+          willDeliver: true
         }
       })
     });

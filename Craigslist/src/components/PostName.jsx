@@ -25,12 +25,14 @@ export default function PostName({ post, token, posts, setPosts}) {
 
   async function handleEdit() {
     try {
-      const result = await editPost(title, description, price, willDeliver, currentToken, post._id);
+      const result = await editPost(currentToken, post._id);
+      console.log(result)
+      if (result.success) {
+        console.log("you made an edit!")
+      } else{
+        console.log("WTF")
+      }
 
-      const updatedPosts = posts.filter((selectedPost) => selectedPost._id !== post._id)
-      console.log(result);
-      setPosts(updatedPosts);
-      navigate("/posts");
     } catch (error) {
       console.error(error);
     } 
