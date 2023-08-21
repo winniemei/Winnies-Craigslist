@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { makePost } from "../api";
 import { selectCurrentToken, selectCurrentUser } from "../redux/authenticateSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { editPost } from "../api";
-
 
 export default function UpdatePost({ post, token, posts, setPosts}) {
     const [title, setTitle] = useState("");
@@ -33,22 +31,6 @@ export default function UpdatePost({ post, token, posts, setPosts}) {
           alert("Apologies -- you have to be logged in and enter a valid post. Make sure to set delivery to either true or false.")
       }
   }
-
-
-    // async function handleSubmit(e) {
-    //     try {
-    //       const result = await editPost(title, price, description, willDeliver, currentToken, post._id);
-    //       console.log(result)
-    //       if (result.success) {
-    //         console.log("you made an edit!")
-    //       } else{
-    //         console.log("WTF")
-    //       }
-    
-    //     } catch (error) {
-    //       console.error(error);
-    //     }
-    // } 
 
     return (
             <div className="formGroup">

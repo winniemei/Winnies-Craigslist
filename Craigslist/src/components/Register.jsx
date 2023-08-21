@@ -11,7 +11,7 @@ export default function Register({token, setToken}) {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            if ({username}.username.length >= 8) {
+            if ({username}.username.length >= 5) {
             const response = await fetch(`${BASE_URL}/users/register`,{
                 method: "POST",
                 body: JSON.stringify({user: {username, password}}),
@@ -28,7 +28,6 @@ export default function Register({token, setToken}) {
             setPassword("");
             setToken("");
             setSuccessMessage("");
-            // console.log(`ayooooo ${token}`);
         }
         } catch (error) {
             setError(error.message);

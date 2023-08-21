@@ -6,32 +6,32 @@ import { useSelector } from "react-redux";
 import { selectCurrentToken } from "../redux/authenticateSlice";
 import UpdatePost from "./UpdatePost";
 
-export default function PostName({ post, token, posts, setPosts}) {
+export default function PostName({ post, token, posts, setPosts }) {
   const navigate = useNavigate();
   const currentToken = useSelector(selectCurrentToken)
 
   async function handleDelete() {
     try {
       const result = await deletePost(post._id, currentToken);
-
       const updatedPosts = posts.filter((selectedPost) => selectedPost._id !== post._id)
       console.log(result);
       setPosts(updatedPosts);
-      navigate("/posts");
-    } catch (error) {
+      navigate("/posts")
+    }
+    catch (error) {
       console.error(error);
-    } 
-    
+    }
+
   }
 
   async function handleEdit() {
     try {
-      <UpdatePost post={post}/>
+      <UpdatePost post={post} />
       navigate("/updatePost")
     } catch (error) {
       console.error(error);
-    } 
-    
+    }
+
   }
 
   return (

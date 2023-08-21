@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { makePost } from "../api";
-import { selectCurrentToken, selectCurrentUser } from "../redux/authenticateSlice";
+import { selectCurrentToken } from "../redux/authenticateSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import authenticateReducer from "../redux/authenticateSlice"
 
-
-export default function CreatePost({ posts, setPosts, username}) {
+export default function CreatePost() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("");
