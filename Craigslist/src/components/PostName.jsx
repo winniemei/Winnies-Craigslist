@@ -16,6 +16,7 @@ export default function PostName({ post, token, posts, setPosts }) {
       const updatedPosts = posts.filter((selectedPost) => selectedPost._id !== post._id)
       console.log(result);
       setPosts(updatedPosts);
+      alert("Looks liked you tried to delete something. To check if it actually got deleted, navigate to another link + then click posts again :D")
       navigate("/posts")
     }
     catch (error) {
