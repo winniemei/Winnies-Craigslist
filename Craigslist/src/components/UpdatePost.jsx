@@ -18,17 +18,17 @@ export default function UpdatePost({ post, token, posts, setPosts}) {
       e.preventDefault();
       const APIData = await editPost(title, description, price, willDeliver, currentToken, post._id);
       console.log(currentToken)
-      console.log(posts)
-      console.log(post)
       if (APIData.success) {
           console.log("New Player: ", APIData);
+          console.log(posts)
+          console.log(`trying to see if im the author: ${JSON.stringify(post)}`)
           alert("Congrats!! You edited a post!")
           navigate('/posts')
       } else {
         console.log(APIData)
         console.log(post)
         console.log(posts)
-          alert("Apologies -- you have to be logged in and enter a valid post. Make sure to set delivery to either true or false.")
+          alert("Apologies! You can't edit! Are you the author?")
       }
   }
 
@@ -68,7 +68,7 @@ export default function UpdatePost({ post, token, posts, setPosts}) {
                     placeholder="willDeliver"
                     onChange={(e) => setWillDeliver(e.target.value)}
                 /><br /><br />
-                <button>Submit</button>
+                <button>Update Post</button>
             </form>
         </div>
     );

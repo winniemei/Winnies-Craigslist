@@ -42,7 +42,6 @@ export default function PostName({ post, token, posts, setPosts }) {
         <p>Description: {post.description}</p>
         <p>Price: {post.price}</p><br></br>
         <button type="button" onClick={handleDelete}>Delete Post</button>
-        <button type="button" onClick={handleEdit}>Edit</button>
       </div>
     </div>
   );
